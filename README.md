@@ -9,7 +9,7 @@ The Niffler framework consists of:
 - Scanner Usage Visualization with PACS And RIS data algorithm (modules/suvpar).
 - Sample applications of the Niffler modules (modules/app-layer).
 
-Niffler enables receiving DICOM images real-time as a data stream from PACS as well as specific DICOM data based on a series of DICOM C-MOV queries. The Niffler real-time DICOM receiver extracts the metadata free of PHI as the images arrive, store the metadata in a Mongo database, and deletes the images nightly. The on-demand extractor reads a CSV file provided by the user (consisting of a list of values for PatientID, AccessionNumber, or other DICOM keywords), and performs a series of DICOM C-MOVE requests to receive them from the PACS, without manually querying them. Niffler also provides additional features such as converting DICOM images into PNG images, and perform additional computations such as computing scanner utilization and finding scanners with misconfigured clocks.
+Niffler enables receiving DICOM images real-time as a data stream from PACS as well as specific DICOM data based on a series of DICOM C-MOVE queries. The Niffler real-time DICOM receiver extracts the metadata free of PHI as the images arrive, stores the metadata in a Mongo database, and deletes the images nightly. The on-demand extractor reads a CSV file provided by the user (consisting of a list of values for PatientID, AccessionNumber, or other DICOM keywords), and performs a series of DICOM C-MOVE requests to receive them from the PACS, without manually querying them. Niffler also provides additional features such as converting DICOM images into PNG images, and perform additional computations such as computing scanner utilization and finding scanners with misconfigured clocks.
 
 
 # Configure Niffler
@@ -25,15 +25,15 @@ $ git clone https://github.com/Emory-HITI/Niffler.git
 
 $ cd Niffler
 ```
-The master branch is stable whereas the dev branch has the bleeding edge.
+The master branch is stable whereas the dev branch has the latest features.
 
-You might want to use the dev branch for the latest updates. For more stable version, skip the below step:
+You might want to use the dev branch for the recent updates. For more stable version, skip the steps below:
 ```
 $ git checkout dev
 ```
 Finally, run the installation script for a quick installation of dependencies. 
 
-For linux use:
+For Linux use:
 ```
 $ sh install.sh
 ```
@@ -54,7 +54,7 @@ Both meta-extraction and cold-extraction modules require proper configuration of
 
 * If you plan to use meta-extraction and cold-extraction modules, please make sure to configure the PACS to send data to Niffler meta-extraction module's host, port, and AE_Title. 
 
-* Niffler cold-extraction won't receive data unless the PACS allows the requests from Niffler cold-extraction (host/port/AE_Title). Please go through your PACS framework's documentation on configuring host/port/AE_Tiles for a new AE to accept queries from (Query AET). Those instructions should prepare your PACS to receive queries from Niffler as the Query AET.
+* Niffler cold-extraction won't receive data unless the PACS allows the requests from Niffler cold-extraction (host/port/AE_Title). Please go through your PACS framework's documentation on configuring host/port/AE_Titles for a new AE to accept queries from (Query AET). Those instructions should prepare your PACS to receive queries from Niffler as the Query AET.
 
 
 
