@@ -35,8 +35,8 @@ if [ "$PIP" = false ] ; then
     if command -v conda >/dev/null 2>&1 ; then
         echo "Conda is already installed, skipping..."
     else
-        wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
-        sh Anaconda3-2020.11-Linux-x86_64.sh -u
+        wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+        sh Anaconda3-2024.10-1-Linux-x86_64.sh -u
         source ~/.bashrc
         rm Anaconda3-2020.11-Linux-x86_64.sh
     fi
